@@ -3534,15 +3534,19 @@ CREATE TABLE IF NOT EXISTS `xxhz_enewsdolog` (
   `ipport` varchar(6) NOT NULL DEFAULT '',
   PRIMARY KEY (`logid`),
   KEY `pubid` (`pubid`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- 正在导出表  xxhezi.xxhz_enewsdolog 的数据：4 rows
+-- 正在导出表  xxhezi.xxhz_enewsdolog 的数据：8 rows
 /*!40000 ALTER TABLE `xxhz_enewsdolog` DISABLE KEYS */;
 INSERT INTO `xxhz_enewsdolog` (`logid`, `logip`, `logtime`, `username`, `enews`, `doing`, `pubid`, `ipport`) VALUES
 	(1, '127.0.0.1', '2019-05-31 11:23:46', 'admin', 'login', '---', 0, '57025'),
 	(2, '127.0.0.1', '2019-05-31 11:26:08', 'admin', 'AddMenuClass', 'classid=1<br>classname=手动管理', 0, '57463'),
 	(3, '127.0.0.1', '2019-05-31 11:26:20', 'admin', 'AddMenu', 'classid=1<br>menuid=1&amp;menuname=手动管理分类', 0, '57507'),
-	(4, '127.0.0.1', '2019-05-31 11:26:32', 'admin', 'AddMenu', 'classid=1<br>menuid=2&amp;menuname=管理', 0, '57537');
+	(4, '127.0.0.1', '2019-05-31 11:26:32', 'admin', 'AddMenu', 'classid=1<br>menuid=2&amp;menuname=管理', 0, '57537'),
+	(5, '127.0.0.1', '2019-05-31 13:16:23', 'admin', 'login', '---', 0, '56822'),
+	(6, '127.0.0.1', '2019-05-31 13:16:34', 'admin', 'exit', '---', 0, '56844'),
+	(7, '127.0.0.1', '2019-05-31 13:16:53', 'admin', 'login', '---', 0, '56901'),
+	(8, '127.0.0.1', '2019-05-31 13:17:14', 'admin', 'exit', '---', 0, '56967');
 /*!40000 ALTER TABLE `xxhz_enewsdolog` ENABLE KEYS */;
 
 
@@ -3991,6 +3995,38 @@ CREATE TABLE IF NOT EXISTS `xxhz_enewsfile_public` (
 -- 正在导出表  xxhezi.xxhz_enewsfile_public 的数据：0 rows
 /*!40000 ALTER TABLE `xxhz_enewsfile_public` DISABLE KEYS */;
 /*!40000 ALTER TABLE `xxhz_enewsfile_public` ENABLE KEYS */;
+
+
+-- 导出  表 xxhezi.xxhz_enewsfocus 结构
+CREATE TABLE IF NOT EXISTS `xxhz_enewsfocus` (
+  `fid` int(11) NOT NULL AUTO_INCREMENT,
+  `fname` varchar(100) NOT NULL DEFAULT '' COMMENT '名称',
+  `picurl` varchar(200) DEFAULT NULL,
+  `url` varchar(200) DEFAULT NULL,
+  `ftime` int(11) DEFAULT NULL,
+  `target` varchar(10) DEFAULT NULL,
+  `classid` smallint(5) DEFAULT NULL,
+  `fsort` smallint(6) DEFAULT NULL COMMENT '排序',
+  `smallpicurl` varchar(200) NOT NULL DEFAULT '' COMMENT '缩略图url',
+  `comment` varchar(500) NOT NULL,
+  PRIMARY KEY (`fid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='手动管理';
+
+-- 正在导出表  xxhezi.xxhz_enewsfocus 的数据：0 rows
+/*!40000 ALTER TABLE `xxhz_enewsfocus` DISABLE KEYS */;
+/*!40000 ALTER TABLE `xxhz_enewsfocus` ENABLE KEYS */;
+
+
+-- 导出  表 xxhezi.xxhz_enewsfocusclass 结构
+CREATE TABLE IF NOT EXISTS `xxhz_enewsfocusclass` (
+  `classid` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `classname` char(30) NOT NULL DEFAULT '',
+  PRIMARY KEY (`classid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='手动分类';
+
+-- 正在导出表  xxhezi.xxhz_enewsfocusclass 的数据：0 rows
+/*!40000 ALTER TABLE `xxhz_enewsfocusclass` DISABLE KEYS */;
+/*!40000 ALTER TABLE `xxhz_enewsfocusclass` ENABLE KEYS */;
 
 
 -- 导出  表 xxhezi.xxhz_enewsgbook 结构
@@ -4613,12 +4649,14 @@ CREATE TABLE IF NOT EXISTS `xxhz_enewslog` (
   `ipport` varchar(6) NOT NULL DEFAULT '',
   PRIMARY KEY (`loginid`),
   KEY `status` (`status`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- 正在导出表  xxhezi.xxhz_enewslog 的数据：1 rows
+-- 正在导出表  xxhezi.xxhz_enewslog 的数据：3 rows
 /*!40000 ALTER TABLE `xxhz_enewslog` DISABLE KEYS */;
 INSERT INTO `xxhz_enewslog` (`loginid`, `username`, `logintime`, `loginip`, `status`, `password`, `loginauth`, `ipport`) VALUES
-	(1, 'admin', '2019-05-31 11:23:46', '127.0.0.1', 1, '', 0, '57025');
+	(1, 'admin', '2019-05-31 11:23:46', '127.0.0.1', 1, '', 0, '57025'),
+	(2, 'admin', '2019-05-31 13:16:23', '127.0.0.1', 1, '', 0, '56822'),
+	(3, 'admin', '2019-05-31 13:16:53', '127.0.0.1', 1, '', 0, '56901');
 /*!40000 ALTER TABLE `xxhz_enewslog` ENABLE KEYS */;
 
 
@@ -6622,7 +6660,7 @@ CREATE TABLE IF NOT EXISTS `xxhz_enewsuser` (
 -- 正在导出表  xxhezi.xxhz_enewsuser 的数据：1 rows
 /*!40000 ALTER TABLE `xxhz_enewsuser` DISABLE KEYS */;
 INSERT INTO `xxhz_enewsuser` (`userid`, `username`, `password`, `rnd`, `adminclass`, `groupid`, `checked`, `styleid`, `filelevel`, `salt`, `loginnum`, `lasttime`, `lastip`, `truename`, `email`, `classid`, `pretime`, `preip`, `addtime`, `addip`, `userprikey`, `salt2`, `lastipport`, `preipport`, `addipport`, `uprnd`, `wname`, `tel`, `wxno`, `qq`) VALUES
-	(1, 'admin', '6c08881345d61149f8f20fc940c087bc', 'ZIauTGnEHPUkHycPspwd', '', 1, 0, 1, 0, '1WmGQGO0', 1, 1559273025, '127.0.0.1', '', '', 0, 0, '', 1559273017, '127.0.0.1', 'mpzt7II0jS35y3eWvbWqLXSEMQXvbd9jPSSCN1WbcEBt8Knb', 'hBtCRasSjPosuHBrw6Hn', '57025', '57025', '57025', '', '', '', '', '');
+	(1, 'admin', '6c08881345d61149f8f20fc940c087bc', 'HbyEyKpzvTgzaFMRJrE9', '', 1, 0, 1, 0, '1WmGQGO0', 3, 1559279813, '127.0.0.1', '', '', 0, 1559279783, '127.0.0.1', 1559273017, '127.0.0.1', 'mpzt7II0jS35y3eWvbWqLXSEMQXvbd9jPSSCN1WbcEBt8Knb', 'hBtCRasSjPosuHBrw6Hn', '56901', '56822', '57025', '', '', '', '', '');
 /*!40000 ALTER TABLE `xxhz_enewsuser` ENABLE KEYS */;
 
 
@@ -6728,10 +6766,8 @@ CREATE TABLE IF NOT EXISTS `xxhz_enewsuserloginck` (
   PRIMARY KEY (`userid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- 正在导出表  xxhezi.xxhz_enewsuserloginck 的数据：1 rows
+-- 正在导出表  xxhezi.xxhz_enewsuserloginck 的数据：0 rows
 /*!40000 ALTER TABLE `xxhz_enewsuserloginck` DISABLE KEYS */;
-INSERT INTO `xxhz_enewsuserloginck` (`userid`, `andauth`) VALUES
-	(1, '0a7e7b9855ef322a1f26c5995c40a1ea');
 /*!40000 ALTER TABLE `xxhz_enewsuserloginck` ENABLE KEYS */;
 
 
