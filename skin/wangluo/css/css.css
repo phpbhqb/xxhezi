@@ -1,0 +1,428 @@
+@charset "utf-8";
+
+/*
+@名称: base
+@功能: 重设浏览器默认样式
+*/
+
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+
+html {
+    color: #000;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+
+/* HTML5 媒体文件跟 img 保持一致 */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+
+body,
+button,
+input,
+select,
+textarea {
+    font: normal 14px/24px "Helvetica Neue", Helvetica, STheiti, "Microsoft Yahei", "冬青黑体简体中文 w3", 宋体, Arial, Tahoma, sans-serif, serif;
+    word-wrap: break-word;
+}
+
+input,
+button,
+textarea,
+select,
+option,
+optiongroup {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+input,
+select,
+textarea {
+    font-size: 100%;
+}
+
+
+/* 去掉各Table cell 的边距并让其边重合 */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* IE bug fixed: th 不继承 text-align*/
+
+th {
+    text-align: inherit;
+}
+
+
+/* 去除默认边框 */
+
+fieldset,
+img {
+    border: 0;
+}
+
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+
+iframe {
+    display: block;
+}
+
+
+/* 去掉 firefox 下此元素的边框 */
+
+abbr,
+acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+
+/* 一致的 del 样式 */
+
+del {
+    text-decoration: line-through;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+    font-style: normal;
+    font-weight: 500;
+}
+
+
+/* 去掉列表前的标识, li 会继承 */
+
+ol,
+ul {
+    list-style: none;
+}
+
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+
+caption,
+th {
+    text-align: left;
+}
+
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: 500;
+}
+
+q:before,
+q:after {
+    content: '';
+}
+
+
+/* 统一上标和下标 */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+a {
+    color: #333;
+}
+
+
+/* 让链接在 hover 状态下显示下划线 */
+
+a:hover {
+    text-decoration: none;
+    color: red;
+}
+
+
+/* 默认不显示下划线，保持页面简洁 */
+
+ins,
+a {
+    text-decoration: none;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+    /* for IE6 IE7 */
+}
+
+.box {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+}
+
+.boxL {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    width: 0%;
+    display: block;
+}
+
+.imgAll img {
+    -webkit-transition: all .7s;
+    transition: all .7s;
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+}
+
+.imgAll:hover img {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.nav {
+    height: 95px;
+}
+
+.nav .head,
+.contList,
+.footerCont {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    float: left;
+    margin-top: 25px;
+}
+
+.menu {
+    float: right;
+}
+
+.menu ul li {
+    float: left;
+    margin-left: 45px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 93px;
+}
+
+.menu ul li.active,
+.menu ul li:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #04971c;
+}
+
+.cont {
+    margin-top: 60px;
+    padding-bottom: 100px;
+}
+
+.banner {
+    height: 435px;
+    background: red;
+    box-shadow: 0px 5px 5px #ccc;
+}
+
+.bannerMin {
+    height: 70px;
+    background: red;
+    box-shadow: 0px 5px 5px #ccc;
+}
+
+.contItem {
+    float: left;
+    width: 270px;
+    margin-right: 180px;
+}
+
+.contItem:last-child {
+    margin-right: 0;
+}
+
+.contItem h1 {
+    padding-left: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+
+.contItem h1.yx {
+    background: url(../images/icon01.png) no-repeat;
+}
+
+.contItem h1.zmt {
+    background: url(../images/icon02.png) no-repeat;
+}
+
+.contItem h1.ydff {
+    background: url(../images/icon03.png) no-repeat;
+}
+
+.contItem p {
+    line-height: 40px;
+}
+
+.moreUrl {
+    height: 32px;
+    line-height: 32px;
+    padding-left: 30px;
+    cursor: pointer;
+    background: #f53418;
+    margin-top: 20px;
+}
+
+.moreUrl span {
+    border-right: 1px solid #c8cecf;
+    color: #fff;
+}
+
+.moreUrl em {
+    width: 45px;
+    height: 32px;
+    background: url(../images/icon04.png) center center no-repeat;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #f1f1f1;
+    height: 42px;
+    line-height: 42px;
+}
+
+.pageUs h1 {
+    font-weight: bold;
+}
+
+.pageUs p {
+    line-height: 40px;
+    margin-top: 20px;
+}
